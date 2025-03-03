@@ -2,14 +2,18 @@ import sys
 
 
 def main():
-    # Uncomment this block to pass the first stage
-    sys.stdout.write("$ ")
+    while True:
+        sys.stdout.write("$ ")
+        cmd = input()
+        tok = cmd.split(" ")
 
-    # Wait for user input
-    cmd = input()
-
-    # all commands invalid
-    print(f"{cmd}: command not found")
+        if tok[0] == "exit":
+            if len(tok) > 1 and tok[1].isdigit():
+                sys.exit(int(tok[1]))
+            else:
+                sys.exit()
+        else:
+            print(f"{cmd}: command not found")
 
 
 if __name__ == "__main__":
